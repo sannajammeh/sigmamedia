@@ -1,7 +1,8 @@
 import next from 'next';
 import styled from 'styled-components';
 import Text from "../components/atoms/Text";
-import Head from 'next/head'
+import Head from 'next/head';
+import Section from '../components/atoms/Section'
 
 //Framer Motion
 import { motion } from "framer-motion";
@@ -56,14 +57,7 @@ const Skills = () => {
 
 // SCSS 
 
-const SkillsSection = styled.section`
-    background: ${({theme}) => theme.colors.bg};
-    height: 90vh;
-    width: 100vw;
-    padding: 2rem;
-    width: 90%;
-    margin: 0 auto;
-`;
+const SkillsSection = styled(Section)``;
 
 const SkillsHeader = styled.div`
     padding: 2rem;
