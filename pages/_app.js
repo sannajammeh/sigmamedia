@@ -1,21 +1,26 @@
-import '../styles/globals.css';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+/* eslint-disable react/prop-types */
+import { ThemeProvider } from 'styled-components';
+import MobileMenuPortal from '../components/organisms/MobileMenu';
+import Navbar from '../components/molecules/Navbar';
+import GlobalStyle from '../theme/globalstyle';
+import Head from 'next/head';
 import theme from '../theme';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
 
 export default function App({ Component, pageProps }) {
 	return (
 		<>
-			<GlobalStyle />
+			<Head>
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link
+					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+					rel="stylesheet"
+				/>
+			</Head>
 			<ThemeProvider theme={theme}>
+				<GlobalStyle />
+				<Navbar />
 				<Component {...pageProps} />
+				<MobileMenuPortal />
 			</ThemeProvider>
 		</>
 	);

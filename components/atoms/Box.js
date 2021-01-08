@@ -2,21 +2,24 @@ import styled from 'styled-components';
 import {
 	display,
 	typography,
-	spacing,
+	space,
 	color,
 	shadow,
-	size,
-	flex,
+	flexbox,
 	layout,
+	background,
+	position,
 } from 'styled-system';
 const Box = styled.div`
 	${typography}
-	${spacing}
+	${space}
     ${color}
     ${shadow}
     ${display}
-    ${flex}
-    ${layout}
+	${layout}
+	${flexbox}
+	${background}
+	${position}
 `;
 
 export default Box;
