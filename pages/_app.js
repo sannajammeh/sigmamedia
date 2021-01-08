@@ -15,6 +15,10 @@ export default function App({ Component, pageProps }) {
 					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
 					rel="stylesheet"
 				/>
+				<link
+					href="https://css.gg/menu-right-alt.css"
+					rel="stylesheet"
+				/>
 			</Head>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />

@@ -5,6 +5,7 @@ import { routeArray } from '../../routes';
 import Button from '../atoms/Button';
 import Box from '../atoms/Box';
 import Container from '../atoms/Container';
+import Media from '../../utils/media';
 
 const Navbar = () => {
 	return (
@@ -12,7 +13,7 @@ const Navbar = () => {
 			<Box width={1 / 6} display="flex" justifyContent="start">
 				<img src="/figma.svg" height="30px" />
 			</Box>
-			<Box width={4 / 6}>
+			<DesktopBox width={4 / 6}>
 				<nav>
 					<NavList>
 						{routeArray.map(([name, path], key) => (
@@ -22,12 +23,15 @@ const Navbar = () => {
 						))}
 					</NavList>
 				</nav>
-			</Box>
-			<Box width={1 / 6} display="flex" justifyContent="flex-end">
+			</DesktopBox>
+			<DesktopBox width={1 / 6} display="flex" justifyContent="flex-end">
 				<Button variant="outlined" py="2" px="4">
 					Inquire
 				</Button>
-			</Box>
+			</DesktopBox>
+			<MobileBox>
+				<i className="gg-menu-right-alt" />
+			</MobileBox>
 		</Header>
 	);
 };
@@ -85,5 +89,19 @@ const NavItemStyle = styled.li`
 	&:hover {
 		text-decoration: underline;
 		cursor: pointer;
+	}
+`;
+
+const DesktopBox = styled(Box)`
+	display: none;
+	${Media.sm} {
+		display: block;
+	}
+`;
+
+const MobileBox = styled(Box)`
+	display: block;
+	${Media.sm} {
+		display: none;
 	}
 `;

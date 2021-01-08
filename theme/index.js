@@ -18,7 +18,7 @@ const shadows = {
 	lg: '',
 };
 
-const breakpoints = ['40em', '52em', '64em', '80em'];
+const breakpoints = ['640px', '768px', '992px', '1200px'];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
