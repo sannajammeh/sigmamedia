@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import shouldForwardProp from '@styled-system/should-forward-prop';
+
 import {
 	display,
 	typography,
@@ -10,7 +12,7 @@ import {
 	background,
 	position,
 } from 'styled-system';
-const Box = styled.div`
+const Box = styled('div', { shouldForwardProp })`
 	${typography}
 	${space}
     ${color}
