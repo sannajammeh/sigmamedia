@@ -4,7 +4,8 @@ const routes = {
 	about: '/about',
 	contact: '/contact',
 	elements: '/elements',
-	skills: '/skills'
+	skills: '/skills',
+	work: '/OurWork'
 	
 };
 
