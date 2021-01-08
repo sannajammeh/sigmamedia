@@ -3,6 +3,7 @@ import Row from '../atoms/Row';
 import Container from '../atoms/Container';
 import Head from 'next/head';
 import Text from "../atoms/Text";
+import Media from '../../utils/media';
 
 const Footer = () => {
     return (
@@ -11,11 +12,17 @@ const Footer = () => {
                 <link href='https://css.gg/pin.css' rel='stylesheet'></link>
                 <link href='https://css.gg/phone.css' rel='stylesheet'></link>
                 <link href='https://css.gg/mail.css' rel='stylesheet'></link>
+                <link href='https://css.gg/instagram.css' rel='stylesheet'></link>
             </Head>
             <Container>
             <Row>
                 <FooterColumn>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, ex?</p>
+                    <Text variant="sub-heading">Social media</Text>
+                    <Row>
+                        <Icon><i class="gg-instagram"></i></Icon>
+                        <Icon><i class="gg-instagram"></i></Icon>
+                        <Icon><i class="gg-instagram"></i></Icon>
+                    </Row>
                 </FooterColumn>
                 <FooterColumn>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, ex?</p>
@@ -70,5 +77,8 @@ const Icon = styled.div`
     i {
         transform: scale(1.5);
         margin: 1rem;
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 `
