@@ -2,7 +2,8 @@ import next from 'next';
 import styled from 'styled-components';
 import Text from "../components/atoms/Text";
 import Head from 'next/head';
-import Section from '../components/atoms/Section'
+import Section from '../components/atoms/Section';
+import Header from '../components/atoms/Header';
 
 //Framer Motion
 import { motion } from "framer-motion";
@@ -17,11 +18,11 @@ const Skills = () => {
                 <link href='https://css.gg/smartphone.css' rel='stylesheet'></link>
                 <link href='https://css.gg/album.css' rel='stylesheet'></link>
             </Head>
-            <SkillsHeader>
-                <Text variant="second-headline">
-                    <motion.h2 variants={titleAnim} animate="show">Skillsets</motion.h2>
+            <Header>
+                <Text variant="headline">
+                    Skillsets
                 </Text>
-            </SkillsHeader>
+            </Header>
             <SkillsBoxes>
                 <SkillsBox>
                     <Icon><i class="gg-arrange-front"></i></Icon>
@@ -59,11 +60,7 @@ const Skills = () => {
 
 const SkillsSection = styled(Section)``;
 
-const SkillsHeader = styled.div`
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-`
+
 
 const SkillsBoxes = styled.div`
     display: block;
