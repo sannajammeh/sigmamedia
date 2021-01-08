@@ -5,6 +5,7 @@ import Navbar from '../components/molecules/Navbar';
 import GlobalStyle from '../theme/globalstyle';
 import Head from 'next/head';
 import theme from '../theme';
+import Footer from '../components/molecules/Footer';
 
 export default function App({ Component, pageProps }) {
 	return (
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }) {
 				<GlobalStyle />
 				<Navbar />
 				<Component {...pageProps} />
+				<Footer></Footer>
 				<MobileMenuPortal />
 			</ThemeProvider>
 		</>

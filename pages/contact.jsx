@@ -6,10 +6,12 @@ import Text from "../components/atoms/Text";
 import Header from '../components/atoms/Header';
 import Row from '../components/atoms/Row';
 import Button from '../components/atoms/Button';
+import Footer from '../components/molecules/Footer';
 
 const Contact = () => {
     return (
-        <ContactSection>
+        <div>
+            <ContactSection>
             <Header>
                 <Text variant="headline">
                     Stay In Touch
@@ -32,6 +34,8 @@ const Contact = () => {
                 </Row>
             </Form>
         </ContactSection>
+ 
+        </div>
     )
 }
 

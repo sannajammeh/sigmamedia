@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from '../../atoms/Container';
 import Box from '../../atoms/Box';
+import styled from 'styled-components';
+import Text from "../../atoms/Box";
 
 const Hero = () => {
 	return (

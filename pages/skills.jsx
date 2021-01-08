@@ -4,6 +4,7 @@ import Text from "../components/atoms/Text";
 import Head from 'next/head';
 import Section from '../components/atoms/Section';
 import Header from '../components/atoms/Header';
+import Footer from '../components/molecules/Footer';
 
 //Framer Motion
 import { motion } from "framer-motion";
@@ -12,7 +13,8 @@ import { titleAnim } from "../animation";
 
 const Skills = () => {
     return (
-        <SkillsSection>
+        <div>
+            <SkillsSection>
             <Head>
                 <link href='https://css.gg/arrange-front.css' rel='stylesheet'></link>
                 <link href='https://css.gg/smartphone.css' rel='stylesheet'></link>
@@ -52,6 +54,8 @@ const Skills = () => {
                 </center>
             </SkillsImages>
         </SkillsSection>
+
+        </div>
     )
 }
 
