@@ -106,8 +106,7 @@ const Icon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: ${({ theme }) => theme.palette.purple[400]};
-	transition: all 0.3s ease-in-out;
+	color: ${({ theme }) => theme.palette.rose[500]};
 	i {
 		transform: scale(2);
 		margin: 1rem;

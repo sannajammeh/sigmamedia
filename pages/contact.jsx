@@ -44,7 +44,7 @@ const Contact = () => {
 					<Row>
 						<Input
 							as="textarea"
-							style="Resize: none;"
+							style={{ resize: 'none' }}
 							type="text"
 							placeholder="Your Message For Us *"
 							required

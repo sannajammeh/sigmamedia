@@ -46,7 +46,7 @@ const Footer = () => {
 					<FooterColumn>
 						<FooterRow className="mobile">
 							<Icon>
-								<i class="gg-pin"></i>
+								<i className="gg-pin"></i>
 							</Icon>
 							<Text variant="paragraph">
 								<a
@@ -59,7 +59,7 @@ const Footer = () => {
 						</FooterRow>
 						<FooterRow className="mobile">
 							<Icon>
-								<i class="gg-phone"></i>
+								<i className="gg-phone"></i>
 							</Icon>
 							<Text variant="paragraph">
 								Lorem ipsum dolor sit amet consectetur
@@ -68,7 +68,7 @@ const Footer = () => {
 						</FooterRow>
 						<FooterRow className="mobile">
 							<Icon>
-								<i class="gg-mail"></i>
+								<i className="gg-mail"></i>
 							</Icon>
 							<Text variant="paragraph">
 								<a href="mailto:Sigmamedialtd@gmail.com?subject=New Website">
@@ -104,14 +104,13 @@ const Icon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: ${({ theme }) => theme.palette.purple[400]};
+	color: ${({ theme }) => theme.palette.rose[500]};
 	i {
-		transition: all 0.3s ease;
+		transform: scale(1.5);
+		transition: transform 0.3s ease;
 		margin: 1rem;
 		&:hover {
-			transform: scale(1.2);
-			background: white;
-			cursor: pointer;
+			transform: scale(1.4);
 		}
 	}
 `;

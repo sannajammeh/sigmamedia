@@ -7,11 +7,12 @@ import Head from 'next/head';
 import theme from '../theme';
 import Footer from '../components/molecules/Footer';
 import { useRouter } from 'next/router';
+import { useRef } from 'react';
 
 export default function App({ Component, pageProps }) {
 	const { pathname } = useRouter();
-	console.log(pathname);
-	const showFooter = pathname !== '/elements';
+	const navbarRef = useRef();
+	const showFooter = pathname !== '/elements' && !pathname.includes('/demos');
 	return (
 		<>
 			<Head>
@@ -27,8 +28,8 @@ export default function App({ Component, pageProps }) {
 			</Head>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
-				<Navbar />
-				<Component {...pageProps} />
+				<Navbar ref={navbarRef} />
+				<Component {...pageProps} navbarRef={navbarRef} />
 				{showFooter && <Footer />}
 				<MobileMenuPortal />
 			</ThemeProvider>
