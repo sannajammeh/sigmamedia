@@ -100,12 +100,13 @@ const Icon = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: ${({ theme }) => theme.palette.purple[400]};
+	color: ${({ theme }) => theme.palette.rose[500]};
 	i {
 		transform: scale(1.5);
+		transition: transform 0.3s ease;
 		margin: 1rem;
 		&:hover {
-			transform: scale(1.2);
+			transform: scale(1.4);
 		}
 	}
 `;
