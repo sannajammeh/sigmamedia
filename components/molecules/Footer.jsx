@@ -61,10 +61,7 @@ const Footer = () => {
 							<Icon>
 								<i className="gg-phone"></i>
 							</Icon>
-							<Text variant="paragraph">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Hic, dignissimos.
-							</Text>
+							<Text variant="paragraph">Lorem ipsum dolor</Text>
 						</FooterRow>
 						<FooterRow className="mobile">
 							<Icon>
