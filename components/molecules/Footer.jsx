@@ -19,19 +19,23 @@ const Footer = () => {
 			</Head>
 			<Container>
 				<Row>
-					<FooterColumn>
-						<Text variant="sub-heading">Social media</Text>
-						<FooterRow className="mobile">
-							<Icon>
-								<i class="gg-instagram"></i>
-							</Icon>
-							<Icon>
-								<i class="gg-instagram"></i>
-							</Icon>
-							<Icon>
-								<i class="gg-instagram"></i>
-							</Icon>
-						</FooterRow>
+					<FooterColumn className="mobile">
+						<MobileRow>
+							<center>
+								<Text variant="sub-heading">Social media</Text>
+							</center>
+							<FooterRow className="mobile">
+								<Icon>
+									<i class="gg-instagram"></i>
+								</Icon>
+								<Icon>
+									<i class="gg-instagram"></i>
+								</Icon>
+								<Icon>
+									<i class="gg-instagram"></i>
+								</Icon>
+							</FooterRow>
+						</MobileRow>
 					</FooterColumn>
 					<FooterColumn>
 						<p>
@@ -84,7 +88,7 @@ export default Footer;
 const FooterSection = styled.footer`
 	background: ${({ theme }) => theme.colors.bg};
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
-	padding: 2rem 0;
+	padding: 1rem 0;
 	display: flex;
 	justify-content: space-between;
 `;
@@ -102,10 +106,12 @@ const Icon = styled.div`
 	justify-content: center;
 	color: ${({ theme }) => theme.palette.purple[400]};
 	i {
-		transform: scale(1.5);
+		transition: all 0.3s ease;
 		margin: 1rem;
 		&:hover {
 			transform: scale(1.2);
+			background: white;
+			cursor: pointer;
 		}
 	}
 `;
@@ -117,7 +123,13 @@ const FooterRow = styled(Row)`
 	&.mobile {
 		justify-content: flex-start !important;
 	}
-	&.spacing {
-		//margin-left: 2rem;
+`;
+
+const MobileRow = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	${Media.md} {
+		flex-direction: column;
 	}
 `;

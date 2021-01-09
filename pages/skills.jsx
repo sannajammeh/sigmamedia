@@ -30,9 +30,7 @@ const Skills = () => {
 					></link>
 				</Head>
 				<Header>
-					<Text variant="headline">
-						<motion.h2 variants={titleAnim}>Skillsets</motion.h2>
-					</Text>
+					<Text variant="headline">Skillsets</Text>
 				</Header>
 				<SkillsBoxes>
 					<SkillsBox>
@@ -65,7 +63,9 @@ const Skills = () => {
 				</SkillsBoxes>
 				<SkillsImages>
 					<center>
-						<img src="/images/react-logo.png" alt="" />
+						<a href="https://reactjs.org/" target="_blank">
+							<img src="/images/react-logo.png" alt="React" />
+						</a>
 						<img src="/images/javascript-logo.png" alt="" />
 						<img src="/images/node-logo.png" alt="" />
 						<img src="/images/html-logo.png" alt="" />
@@ -90,6 +90,7 @@ const SkillsBoxes = styled.div`
 	display: block;
 	${Media.md} {
 		display: flex;
+		padding: 2rem 0;
 	}
 `;
 
@@ -106,19 +107,31 @@ const Icon = styled.div`
 	align-items: center;
 	justify-content: center;
 	color: ${({ theme }) => theme.palette.purple[400]};
+	transition: all 0.3s ease-in-out;
 	i {
 		transform: scale(2);
 		margin: 1rem;
 	}
+	&:hover {
+		color: ${({ theme }) => theme.palette.purple[200]};
+	}
 `;
 
 const SkillsImages = styled.div`
-	padding: 1rem 2rem;
+	padding: 3rem 2rem;
+	${Media.md} {
+		padding: 2rem 0;
+	}
 	img {
 		width: 60px;
 		height: 60px;
 		margin: 1rem;
 		border-radius: 5%;
+		transition: all 0.3s ease;
+		&:hover {
+			transform: translatey(-10px);
+			cursor: pointer;
+		}
 	}
 `;
 
