@@ -3,6 +3,8 @@ import Button from '../components/atoms/Button';
 import Text from '../components/atoms/Text';
 import Container from '../components/atoms/Container';
 import Box from '../components/atoms/Box';
+import Media from '../utils/media';
+import FloatingBox from '../components/organisms/FloatingBox';
 
 const Elements = () => {
 	return (
@@ -42,6 +44,16 @@ const Elements = () => {
 						</Box>
 					</div>
 				</ButtonGrid>
+			</Showcase>
+			<Showcase n="Floating Box">
+				<FloatingBox
+					images={[
+						'/images/privatek.png',
+						'/images/freaky.png',
+						'/images/inova.png',
+						'/images/biobalance.png',
+					]}
+				/>
 			</Showcase>
 		</Container>
 	);
