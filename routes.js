@@ -3,8 +3,9 @@ const routes = {
 	services: '/services',
 	about: '/about',
 	contact: '/contact',
-	// elements: '/elements',
+	elements: '/elements',
 	skills: '/skills',
+	work: '/OurWork',
 };
 
 export const routeArray = Object.entries(routes);
