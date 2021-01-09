@@ -13,9 +13,18 @@ const previewWebsites = [
 		photoURL: '/images/privatek.png',
 		path: '/demos/privatek?demo=https://privatek.no',
 	},
-	{ photoURL: '/images/freaky.png', path: '/demos/freaky-friday' },
-	{ photoURL: '/images/inova.png', path: '/demos/inova' },
-	{ photoURL: '/images/biobalance.png', path: '/demos/biobalance' },
+	// {
+	// 	photoURL: '/images/freaky.png',
+	// 	path: '/demos/freaky-friday?demo=https://freaky-friday.vercel.app',
+	// },
+	{
+		photoURL: '/images/inova.png',
+		path: '/demos/inova?demo=https://inova-green.vercel.app',
+	},
+	{
+		photoURL: '/images/biobalance.png',
+		path: '/demos/biobalance?demo=https://biobalance-sandy.vercel.app',
+	},
 ];
 
 const Hero = () => {

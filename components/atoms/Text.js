@@ -33,6 +33,13 @@ const Text = styled.p`
 			light: {
 				fontWeight: 'thin',
 			},
+			link: {
+				color: 'palette.blue.400',
+				cursor: 'pointer',
+				'&:hover': {
+					textDecoration: 'underline',
+				},
+			},
 		},
 	})};
 	${space};

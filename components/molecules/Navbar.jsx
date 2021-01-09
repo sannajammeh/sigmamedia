@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import { routeArray } from '../../routes';
 import Button from '../atoms/Button';
 import Box from '../atoms/Box';
 import Container from '../atoms/Container';
 import Media from '../../utils/media';
+import { forwardRef } from 'react';
+import Link from '../atoms/Link';
 
-const Navbar = () => {
+const Navbar = forwardRef((_, ref) => {
 	return (
-		<Header>
+		<Header ref={ref}>
 			<Box width={1 / 6} display="flex" justifyContent="start">
-				<img src="/figma.svg" height="30px" />
+				<Link pointer href="/">
+					<img src="/figma.svg" height="30px" />
+				</Link>
 			</Box>
 			<DesktopBox width={4 / 6}>
 				<nav>
@@ -34,7 +37,7 @@ const Navbar = () => {
 			</MobileBox>
 		</Header>
 	);
-};
+});
 
 export default Navbar;
 
