@@ -6,8 +6,12 @@ import GlobalStyle from '../theme/globalstyle';
 import Head from 'next/head';
 import theme from '../theme';
 import Footer from '../components/molecules/Footer';
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }) {
+	const { pathname } = useRouter();
+	console.log(pathname);
+	const showFooter = pathname !== '/elements';
 	return (
 		<>
 			<Head>
@@ -25,7 +29,7 @@ export default function App({ Component, pageProps }) {
 				<GlobalStyle />
 				<Navbar />
 				<Component {...pageProps} />
-				<Footer></Footer>
+				{showFooter && <Footer />}
 				<MobileMenuPortal />
 			</ThemeProvider>
 		</>
