@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { variant, space, layout } from 'styled-system';
 import css from '@styled-system/css';
+import shouldForwardProps from '@styled-system/should-forward-prop';
 
-const Button = styled.button`
+const Button = styled('button', { shouldForwardProps })`
 	padding: 12px 20px;
 	display: flex;
 	flex-direction: row;
@@ -36,7 +37,7 @@ const Button = styled.button`
 					border: 'normal',
 					borderColor: 'primary',
 					backgroundColor: 'transparent',
-					color: ({ palette }) => palette.purple[300],
+					color: ({ palette }) => palette.purple[100],
 				},
 			},
 			outlined: {

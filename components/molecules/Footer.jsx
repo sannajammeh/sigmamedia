@@ -21,7 +21,7 @@ const Footer = () => {
 				<Row>
 					<FooterColumn>
 						<Text variant="sub-heading">Social media</Text>
-						<Row>
+						<FooterRow className="mobile">
 							<Icon>
 								<i class="gg-instagram"></i>
 							</Icon>
@@ -31,7 +31,7 @@ const Footer = () => {
 							<Icon>
 								<i class="gg-instagram"></i>
 							</Icon>
-						</Row>
+						</FooterRow>
 					</FooterColumn>
 					<FooterColumn>
 						<p>
@@ -40,7 +40,7 @@ const Footer = () => {
 						</p>
 					</FooterColumn>
 					<FooterColumn>
-						<Row>
+						<FooterRow className="mobile">
 							<Icon>
 								<i class="gg-pin"></i>
 							</Icon>
@@ -52,8 +52,8 @@ const Footer = () => {
 									Holmestrandgata 4, 0468 Oslo
 								</a>
 							</Text>
-						</Row>
-						<Row>
+						</FooterRow>
+						<FooterRow className="mobile">
 							<Icon>
 								<i class="gg-phone"></i>
 							</Icon>
@@ -61,8 +61,8 @@ const Footer = () => {
 								Lorem ipsum dolor sit amet consectetur
 								adipisicing elit. Hic, dignissimos.
 							</Text>
-						</Row>
-						<Row>
+						</FooterRow>
+						<FooterRow className="mobile">
 							<Icon>
 								<i class="gg-mail"></i>
 							</Icon>
@@ -71,7 +71,7 @@ const Footer = () => {
 									Sigmamedialtd@gmail.com
 								</a>
 							</Text>
-						</Row>
+						</FooterRow>
 					</FooterColumn>
 				</Row>
 			</Container>
@@ -94,11 +94,6 @@ const FooterColumn = styled.div`
 	p {
 		padding: 2rem;
 	}
-	${Media.md} {
-		p {
-			text-align: center;
-		}
-	}
 `;
 
 const Icon = styled.div`
@@ -112,5 +107,17 @@ const Icon = styled.div`
 		&:hover {
 			transform: scale(1.2);
 		}
+	}
+`;
+
+const FooterRow = styled(Row)`
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	&.mobile {
+		justify-content: flex-start !important;
+	}
+	&.spacing {
+		//margin-left: 2rem;
 	}
 `;
