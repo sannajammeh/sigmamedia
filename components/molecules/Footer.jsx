@@ -23,13 +23,13 @@ const Footer = () => {
 						<Text variant="sub-heading">Social media</Text>
 						<Row>
 							<Icon>
-								<i class="gg-instagram"></i>
+								<i className="gg-instagram"></i>
 							</Icon>
 							<Icon>
-								<i class="gg-instagram"></i>
+								<i className="gg-instagram"></i>
 							</Icon>
 							<Icon>
-								<i class="gg-instagram"></i>
+								<i className="gg-instagram"></i>
 							</Icon>
 						</Row>
 					</FooterColumn>
@@ -42,7 +42,7 @@ const Footer = () => {
 					<FooterColumn>
 						<Row>
 							<Icon>
-								<i class="gg-pin"></i>
+								<i className="gg-pin"></i>
 							</Icon>
 							<Text variant="paragraph">
 								<a
@@ -55,7 +55,7 @@ const Footer = () => {
 						</Row>
 						<Row>
 							<Icon>
-								<i class="gg-phone"></i>
+								<i className="gg-phone"></i>
 							</Icon>
 							<Text variant="paragraph">
 								Lorem ipsum dolor sit amet consectetur
@@ -64,7 +64,7 @@ const Footer = () => {
 						</Row>
 						<Row>
 							<Icon>
-								<i class="gg-mail"></i>
+								<i className="gg-mail"></i>
 							</Icon>
 							<Text variant="paragraph">
 								<a href="mailto:Sigmamedialtd@gmail.com?subject=New Website">

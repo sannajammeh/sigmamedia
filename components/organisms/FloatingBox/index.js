@@ -1,1 +1,1 @@
-export { default } from './FloatingBox';
+export { default, FloatingBox } from './FloatingBox';

@@ -1,23 +1,36 @@
 import styled from 'styled-components';
 import Media from '../../../utils/media';
 
-const FloatingBox = ({
+const FloatingBoxes = ({
 	images = [],
 	sizes = [150, 200, 300, 400],
-	boxProps,
+	boxProps = {},
+	css,
+	onBoxClick,
+	children,
 	...rest
 }) => {
-	if (!images.length) return null;
+	const { ...restBoxProps } = boxProps;
+	const handleBoxClick = (e, index) => {
+		onBoxClick && onBoxClick(e, index);
+	};
 	return (
-		<FloatingBoxContainer {...rest} sizes={sizes}>
-			{images.map(url => (
-				<FloatingBoxChild {...boxProps} url={url} />
-			))}
+		<FloatingBoxContainer css={css} {...rest} sizes={sizes}>
+			{images.length
+				? images.map((url, key) => (
+						<FloatingBox
+							key={key}
+							onClick={e => handleBoxClick(e, key)}
+							{...restBoxProps}
+							url={url}
+						/>
+				  ))
+				: children}
 		</FloatingBoxContainer>
 	);
 };
 
-export default FloatingBox;
+export default FloatingBoxes;
 
 const getBoxSize = (d = 150, n = 0) => ({ boxSize = d }) =>
 	boxSize instanceof Array ? boxSize[n] : boxSize;
@@ -42,9 +55,9 @@ const FloatingBoxContainer = styled.div`
 	transform: matrix(1.48, 0.95, -1.48, 0.98, 0, 0) scale(0.5) translateX(15%)
 		translateY(-15%);
 	transform-origin: 50% 50%;
+	${({ css }) => css}
 `;
-
-const FloatingBoxChild = styled.div`
+export const FloatingBox = styled.div`
 	position: absolute;
 	width: calc((var(--container-size) / 2) - var(--gutter, 0));
 	height: calc((var(--container-size) / 2) - var(--gutter, 0));
@@ -95,13 +108,16 @@ const FloatingBoxChild = styled.div`
 		bottom: 0;
 	}
 	&:hover {
-		transform: translateY(-10px) translateX(-10px) translateZ(0);
+		transform: translateY(-10px) translateX(-10px) translateZ(0)
+			${({ hoverScale }) => (hoverScale ? `scale(${hoverScale})` : '')};
 		transition: z-index 0.3s step-start, all 0.3s ease;
 		z-index: 1;
-		filter: drop-shadow(4px 4px 20px #0084ff);
 		&:nth-child(2) {
 			transform: translateY(-10px) translateX(-10px) translateZ(0)
-				rotate(-90deg);
+				rotate(-90deg)
+				${({ hoverScale }) =>
+					hoverScale ? `scale(${hoverScale})` : ''};
 		}
 	}
+	${({ css }) => css}
 `;
