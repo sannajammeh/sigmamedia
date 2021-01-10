@@ -6,7 +6,7 @@ import Media from '../utils/media';
 import Head from 'next/head';
 import Container from '../components/atoms/Container';
 // Animations
-import { listAnim, scrollReveal, titleAnim } from '../utils/animation';
+import { listAnim, scrollReveal, titleAnim, fade } from '../utils/animation';
 import { useScroll } from '../hooks/useScroll';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/useMediaQuery';
@@ -23,123 +23,129 @@ const About = () => {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<Section>
-				<AboutHeader
-					variants={listAnim}
-					animate={'show'}
-					initial="hidden"
-				>
-					<motion.div variants={titleAnim}>
+			<Container>
+				<AboutHeader>
+					<div>
 						<Text variant="headline">
-							Sigma Media is a creative
+							Sigma Media is a <span>creative</span>
 						</Text>
-					</motion.div>
-					<motion.div variants={titleAnim}>
+					</div>
+					<div>
 						<Text variant="headline">studio specialized in</Text>
-					</motion.div>
-					<motion.div variants={titleAnim}>
+					</div>
+					<div>
 						<Text variant="headline">interactive experiences</Text>
-					</motion.div>
-					<motion.div variants={titleAnim}>
+					</div>
+					<div>
 						<Text variant="headline">& animation.</Text>
-					</motion.div>
+					</div>
 				</AboutHeader>
-			</Section>
+			</Container>
 			<AboutSection>
-				<AboutUsText variant="title">Say Hello To Our Team</AboutUsText>
-				<MemberSection>
-					<ReverseRow>
-						<MemberImg>
-							<MemberImgDisplay
-								src="https://images.unsplash.com/photo-1515161079661-197513d8b51e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-								src1="https://images.unsplash.com/photo-1515161002491-fa402e64cdb2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-							></MemberImgDisplay>
-						</MemberImg>
-						<MemberText>
-							<div>
-								<Text
-									variant="subtitle"
-									className="memberTitle"
-								>
-									CEO
-								</Text>
-								<Text
-									variant="paragraph"
-									className="memberDescription"
-								>
-									Lorem, ipsum dolor sit amet consectetur
-									adipisicing elit. Perferendis repellendus
-									quisquam eaque reiciendis. Cupiditate odit
-									maiores provident earum itaque, ut labore!
-									Voluptates unde autem aut cum nemo tempore,
-									in modi!
-								</Text>
-							</div>
-						</MemberText>
-					</ReverseRow>
-				</MemberSection>
-				<MemberSection>
-					<Row>
-						<MemberImg>
-							<MemberImgDisplay
-								src="https://images.unsplash.com/photo-1567804619027-90a6a07063dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80"
-								src1="https://images.unsplash.com/photo-1567804623185-29d6abca9def?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80"
-							></MemberImgDisplay>
-						</MemberImg>
-						<MemberText>
-							<div>
-								<Text
-									variant="subtitle"
-									className="memberTitle"
-								>
-									CEO
-								</Text>
-								<Text
-									variant="paragraph"
-									className="memberDescription"
-								>
-									Lorem, ipsum dolor sit amet consectetur
-									adipisicing elit. Perferendis repellendus
-									quisquam eaque reiciendis. Cupiditate odit
-									maiores provident earum itaque, ut labore!
-									Voluptates unde autem aut cum nemo tempore,
-									in modi!
-								</Text>
-							</div>
-						</MemberText>
-					</Row>
-				</MemberSection>
-				<MemberSection>
-					<ReverseRow>
-						<MemberImg>
-							<MemberImgDisplay
-								src="https://images.unsplash.com/photo-1598976422096-120ebfd5a022?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-								src1="https://images.unsplash.com/photo-1595052233800-797ff8ffe1cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-							></MemberImgDisplay>
-						</MemberImg>
-						<MemberText>
-							<div>
-								<Text
-									variant="subtitle"
-									className="memberTitle"
-								>
-									CEO
-								</Text>
-								<Text
-									variant="paragraph"
-									className="memberDescription"
-								>
-									Lorem, ipsum dolor sit amet consectetur
-									adipisicing elit. Perferendis repellendus
-									quisquam eaque reiciendis. Cupiditate odit
-									maiores provident earum itaque, ut labore!
-									Voluptates unde autem aut cum nemo tempore,
-									in modi!
-								</Text>
-							</div>
-						</MemberText>
-					</ReverseRow>
-				</MemberSection>
+				<Container>
+					<AboutUsText
+						variants={titleAnim}
+						animate={controls}
+						ref={element}
+						initial="hidden"
+					>
+						<Text variant="title">Say Hello To Our Team</Text>
+					</AboutUsText>
+
+					<MemberSection>
+						<ReverseRow>
+							<MemberImg>
+								<MemberImgDisplay
+									src="https://images.unsplash.com/photo-1515161079661-197513d8b51e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+									src1="https://images.unsplash.com/photo-1515161002491-fa402e64cdb2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+								></MemberImgDisplay>
+							</MemberImg>
+							<MemberText>
+								<div>
+									<Text
+										variant="subtitle"
+										className="memberTitle"
+									>
+										CEO
+									</Text>
+									<Text
+										variant="paragraph"
+										className="memberDescription"
+									>
+										Lorem, ipsum dolor sit amet consectetur
+										adipisicing elit. Perferendis
+										repellendus quisquam eaque reiciendis.
+										Cupiditate odit maiores provident earum
+										itaque, ut labore! Voluptates unde autem
+										aut cum nemo tempore, in modi!
+									</Text>
+								</div>
+							</MemberText>
+						</ReverseRow>
+					</MemberSection>
+					<MemberSection>
+						<Row>
+							<MemberImg>
+								<MemberImgDisplay
+									src="https://images.unsplash.com/photo-1567804619027-90a6a07063dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80"
+									src1="https://images.unsplash.com/photo-1567804623185-29d6abca9def?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80"
+								></MemberImgDisplay>
+							</MemberImg>
+							<MemberText>
+								<div>
+									<Text
+										variant="subtitle"
+										className="memberTitle"
+									>
+										CEO
+									</Text>
+									<Text
+										variant="paragraph"
+										className="memberDescription"
+									>
+										Lorem, ipsum dolor sit amet consectetur
+										adipisicing elit. Perferendis
+										repellendus quisquam eaque reiciendis.
+										Cupiditate odit maiores provident earum
+										itaque, ut labore! Voluptates unde autem
+										aut cum nemo tempore, in modi!
+									</Text>
+								</div>
+							</MemberText>
+						</Row>
+					</MemberSection>
+					<MemberSection>
+						<ReverseRow>
+							<MemberImg>
+								<MemberImgDisplay
+									src="https://images.unsplash.com/photo-1598976422096-120ebfd5a022?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+									src1="https://images.unsplash.com/photo-1595052233800-797ff8ffe1cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+								></MemberImgDisplay>
+							</MemberImg>
+							<MemberText>
+								<div>
+									<Text
+										variant="subtitle"
+										className="memberTitle"
+									>
+										CEO
+									</Text>
+									<Text
+										variant="paragraph"
+										className="memberDescription"
+									>
+										Lorem, ipsum dolor sit amet consectetur
+										adipisicing elit. Perferendis
+										repellendus quisquam eaque reiciendis.
+										Cupiditate odit maiores provident earum
+										itaque, ut labore! Voluptates unde autem
+										aut cum nemo tempore, in modi!
+									</Text>
+								</div>
+							</MemberText>
+						</ReverseRow>
+					</MemberSection>
+				</Container>
 			</AboutSection>
 		</div>
 	);
@@ -148,11 +154,18 @@ const About = () => {
 export default About;
 
 const AboutHeader = styled(motion.div)`
-	padding: 2rem;
-	min-height: 100vh;
+	padding: 2rem 0;
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	//color: ${({ theme }) => theme.palette.rose[400]};
-	padding: 10rem 10rem 10rem 0;
-	margin-right: 30%;
+	${Media.md} {
+		padding: 10rem 0;
+	}
+	span {
+		color: ${({ theme }) => theme.palette.rose[500]};
+	}
 `;
 
 const AboutSection = styled(Section)`
@@ -161,25 +174,29 @@ const AboutSection = styled(Section)`
 `;
 
 const MemberImgStyle = styled(motion.div)`
-	height: 70vh;
-	padding: 0 5rem;
+	height: 60vh;
+	${Media.sm} {
+		height: 60vh;
+	}
 	${Media.md} {
 		flex: 50%;
-
-		padding: 0 10rem;
+		height: 50vh;
+	}
+	${Media.lg} {
+		height: 70vh;
 	}
 `;
 
-const AboutUsText = styled(Text)`
+const AboutUsText = styled(motion.div)`
 	padding: 0rem 5rem;
 	margin: 2rem 0;
 	${Media.md} {
-		padding: 0 10rem;
+		padding: 5rem 0;
 	}
 `;
 
 const MemberImgDisplay = styled.div`
-	width: 100%;
+	width: 90%;
 	height: 100%;
 	background-image: url('${({ src }) => src}');
 	background-size: cover;
@@ -194,13 +211,22 @@ const MemberImgDisplay = styled.div`
 		background-image: url('${src1}');
 	}`
 			: ''};
+
+	${Media.md} {
+		width: 100%;
+	}
+	${Media.w('1400px')} {
+		width: 70%;
+	}
 `;
 
 const MemberTextStyle = styled(motion.div)`
-	padding: 3rem 5rem;
+	padding: 3rem 1rem;
 	${Media.md} {
 		flex: 50%;
-		padding: 10rem;
+	}
+	${Media.w('1400px')} {
+		padding: 3rem 5rem;
 	}
 
 	display: flex;
@@ -220,7 +246,14 @@ const MemberTextStyle = styled(motion.div)`
 
 const MemberSection = styled(motion.div)`
 	min-height: 60vh;
-	${Media.md} {
+	${Media.lg} {
+		min-height: 80vh;
+	}
+
+	${Media.xl} {
+		min-height: 90vh;
+	}
+	${Media.w('1400px')} {
 		min-height: 100vh;
 	}
 `;
@@ -232,6 +265,7 @@ const ReverseRow = styled(RowBase)`
 		order: 1;
 	}
 	${Media.md} {
+		justify-content: space-between;
 		flex-direction: row;
 		div:first-child {
 			order: 2;
@@ -246,6 +280,7 @@ const Row = styled(RowBase)`
 		order: 1;
 	}
 	${Media.md} {
+		justify-content: space-between;
 		flex-direction: row;
 		div:first-child {
 			order: unset;

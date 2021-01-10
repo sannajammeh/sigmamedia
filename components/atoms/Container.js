@@ -9,9 +9,12 @@ const ContainerBase = styled.div`
 		width: 90%;
 	}
 	${Media.md} {
-		width: 80%;
+		width: 85%;
 	}
 	${Media.lg} {
+		width: 80%;
+	}
+	${Media.xl} {
 		width: 75%;
 	}
 `;
