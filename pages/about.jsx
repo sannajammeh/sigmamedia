@@ -6,13 +6,15 @@ import Media from '../utils/media';
 import Head from 'next/head';
 import Container from '../components/atoms/Container';
 // Animations
-import { scrollReveal, titleAnim } from '../utils/animation';
+import { listAnim, scrollReveal, titleAnim } from '../utils/animation';
 import { useScroll } from '../hooks/useScroll';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/useMediaQuery';
 import { useIsClient } from '../hooks/client';
+import Header from '../components/atoms/Header';
 
 const About = () => {
+	const [element, controls] = useScroll();
 	return (
 		<div>
 			<Head>
@@ -22,15 +24,29 @@ const About = () => {
 				></link>
 			</Head>
 			<Section>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Molestiae deleniti, quisquam inventore aut pariatur praesentium
-				laudantium alias ducimus nostrum magnam in nam eos maxime? Ullam
-				illo, dolore nemo doloribus veniam, corrupti adipisci officia
-				aspernatur consectetur minima est vel iste. Porro iste sint,
-				quaerat omnis autem quibusdam. Ullam corporis quibusdam vitae!
+				<AboutHeader
+					variants={listAnim}
+					animate={'show'}
+					initial="hidden"
+				>
+					<motion.div variants={titleAnim}>
+						<Text variant="headline">
+							Sigma Media is a creative
+						</Text>
+					</motion.div>
+					<motion.div variants={titleAnim}>
+						<Text variant="headline">studio specialized in</Text>
+					</motion.div>
+					<motion.div variants={titleAnim}>
+						<Text variant="headline">interactive experiences</Text>
+					</motion.div>
+					<motion.div variants={titleAnim}>
+						<Text variant="headline">& animation.</Text>
+					</motion.div>
+				</AboutHeader>
 			</Section>
 			<AboutSection>
-				<AboutUsText variant="title">Our Team</AboutUsText>
+				<AboutUsText variant="title">Say Hello To Our Team</AboutUsText>
 				<MemberSection>
 					<ReverseRow>
 						<MemberImg>
@@ -131,6 +147,14 @@ const About = () => {
 
 export default About;
 
+const AboutHeader = styled(motion.div)`
+	padding: 2rem;
+	min-height: 100vh;
+	//color: ${({ theme }) => theme.palette.rose[400]};
+	padding: 10rem 10rem 10rem 0;
+	margin-right: 30%;
+`;
+
 const AboutSection = styled(Section)`
 	padding: 0rem !important;
 	width: 100% !important;
@@ -161,8 +185,9 @@ const MemberImgDisplay = styled.div`
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 4px;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.2s ease-in-out;
 	margin: 0 auto;
+	will-change: background-image;
 	${({ src1 }) =>
 		src1
 			? `&:hover {
@@ -184,10 +209,12 @@ const MemberTextStyle = styled(motion.div)`
 	.memberTitle {
 		font-weight: 500;
 		padding: 1rem 0;
+		color: ${({ theme }) => theme.palette.rose[500]};
 	}
 	.memberDescription {
 		font-weight: 100;
 		padding: 0.2rem;
+		line-height: 1.8;
 	}
 `;
 

@@ -10,9 +10,24 @@ export const scrollReveal = {
 };
 
 export const titleAnim = {
-	hidden: { y: 200 },
+	hidden: { y: 200, opacity: 0 },
 	show: {
+		opacity: 1,
 		y: 0,
-		transition: { duration: 0.75, ease: 'easeOut' },
+		transition: { duration: 0.6, ease: 'easeOut' },
+	},
+};
+
+export const listAnim = {
+	hidden: {
+		transition: {
+			when: 'afterChildren',
+		},
+	},
+	show: {
+		transition: {
+			when: 'beforeChildren',
+			staggerChildren: 0.3,
+		},
 	},
 };
