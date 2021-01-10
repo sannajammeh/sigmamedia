@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Section from '../components/atoms/Section';
 import Text from '../components/atoms/Text';
-import Header from '../components/atoms/Header';
 import Row from '../components/atoms/Row';
 import Media from '../utils/media';
 import Head from 'next/head';
@@ -11,13 +10,9 @@ import { scrollReveal, titleAnim } from '../utils/animation';
 import { useScroll } from '../hooks/useScroll';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../hooks/useMediaQuery';
+import { useIsClient } from '../hooks/client';
 
 const About = () => {
-	const [element1, controls1] = useScroll();
-	const [element2, controls2] = useScroll();
-	const [element3, controls3] = useScroll();
-
-	const isMobile = useIsMobile();
 	return (
 		<div>
 			<Head>
@@ -37,23 +32,13 @@ const About = () => {
 			<AboutSection>
 				<MemberSection>
 					<ReverseRow>
-						<MemberImg
-							variants={scrollReveal}
-							animate={controls1}
-							initial="hidden"
-							ref={element1}
-						>
+						<MemberImg>
 							<img
 								src="https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
 								alt=""
 							/>
 						</MemberImg>
-						<MemberText
-							variants={isMobile ? scrollReveal : titleAnim}
-							animate={controls1}
-							initial="hidden"
-							ref={element1}
-						>
+						<MemberText>
 							<div>
 								<Text variant="subtitle">CEO</Text>
 								<Text variant="paragraph">
@@ -70,12 +55,7 @@ const About = () => {
 				</MemberSection>
 				<MemberSection>
 					<Row>
-						<MemberText
-							variants={isMobile ? scrollReveal : titleAnim}
-							animate={controls2}
-							initial="hidden"
-							ref={element2}
-						>
+						<MemberText>
 							<div>
 								<Text variant="subtitle">CEO</Text>
 								<Text variant="paragraph">
@@ -88,12 +68,7 @@ const About = () => {
 								</Text>
 							</div>
 						</MemberText>
-						<MemberImg
-							variants={scrollReveal}
-							animate={controls2}
-							initial="hidden"
-							ref={element2}
-						>
+						<MemberImg>
 							<img
 								src="https://images.unsplash.com/photo-1519713958759-6254243c4a53?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
 								alt=""
@@ -103,23 +78,13 @@ const About = () => {
 				</MemberSection>
 				<MemberSection>
 					<ReverseRow>
-						<MemberImg
-							variants={scrollReveal}
-							animate={controls3}
-							initial="hidden"
-							ref={element3}
-						>
+						<MemberImg>
 							<img
 								src="https://images.unsplash.com/photo-1533088468076-d1f6bdf16f62?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
 								alt=""
 							/>
 						</MemberImg>
-						<MemberText
-							variants={isMobile ? scrollReveal : titleAnim}
-							animate={controls3}
-							initial="hidden"
-							ref={element3}
-						>
+						<MemberText>
 							<div>
 								<Text variant="subtitle">CEO</Text>
 								<Text variant="paragraph">
@@ -146,7 +111,7 @@ const AboutSection = styled(Section)`
 	width: 100% !important;
 `;
 
-const MemberImg = styled(motion.div)`
+const MemberImgStyle = styled(motion.div)`
 	height: 80vh;
 	padding: 0 5rem;
 
@@ -162,7 +127,7 @@ const MemberImg = styled(motion.div)`
 		border-radius: 4px;
 	}
 `;
-const MemberText = styled(motion.div)`
+const MemberTextStyle = styled(motion.div)`
 	padding: 5rem;
 	${Media.md} {
 		flex: 50%;
@@ -190,3 +155,37 @@ const ReverseRow = styled(Row)`
 		flex-direction: row;
 	}
 `;
+
+const MemberImg = ({ children }) => {
+	const [element, controls] = useScroll();
+
+	return (
+		<MemberImgStyle
+			variants={scrollReveal}
+			animate={controls}
+			initial="hidden"
+			ref={element}
+		>
+			{children}
+		</MemberImgStyle>
+	);
+};
+
+const MemberText = ({ children }) => {
+	const [element, controls] = useScroll();
+
+	const isClient = useIsClient();
+	const isMobile = useIsMobile();
+
+	if (!isClient) return null;
+	return (
+		<MemberTextStyle
+			variants={isMobile ? scrollReveal : titleAnim}
+			animate={controls}
+			initial="hidden"
+			ref={element}
+		>
+			{children}
+		</MemberTextStyle>
+	);
+};
