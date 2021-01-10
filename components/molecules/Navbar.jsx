@@ -8,7 +8,7 @@ import Media from '../../utils/media';
 import { forwardRef } from 'react';
 import Link from '../atoms/Link';
 
-const Navbar = forwardRef((_, ref) => {
+const Navbar = forwardRef(({ demoMode }, ref) => {
 	return (
 		<Header ref={ref}>
 			<Box width={1 / 6} display="flex" justifyContent="start">
@@ -16,20 +16,22 @@ const Navbar = forwardRef((_, ref) => {
 					<img src="/figma.svg" height="30px" />
 				</Link>
 			</Box>
-			<DesktopBox width={4 / 6}>
-				<nav>
-					<NavList>
-						{routeArray.map(([name, path], key) => (
-							<NavItem key={key} href={path}>
-								{name}
-							</NavItem>
-						))}
-					</NavList>
-				</nav>
-			</DesktopBox>
+			{!demoMode && (
+				<DesktopBox width={4 / 6}>
+					<nav>
+						<NavList>
+							{routeArray.map(([name, path], key) => (
+								<NavItem key={key} href={path}>
+									{name}
+								</NavItem>
+							))}
+						</NavList>
+					</nav>
+				</DesktopBox>
+			)}
 			<DesktopBox width={1 / 6} display="flex" justifyContent="flex-end">
 				<Button variant="outlined" py="2" px="4">
-					Inquire
+					{!demoMode ? 'Inquire' : 'Viewing Demo'}
 				</Button>
 			</DesktopBox>
 			<MobileBox>

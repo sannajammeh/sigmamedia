@@ -30,9 +30,19 @@ const Skills = () => {
 					></link>
 				</Head>
 				<Header>
-					<Text variant="headline">
-						<motion.h2 variants={titleAnim}>Skillsets</motion.h2>
-					</Text>
+					<div>
+						<Text variant="headline">
+							<motion.h2
+								style={{ margin: 0, padding: 0 }}
+								variants={titleAnim}
+							>
+								Skillsets
+							</motion.h2>
+						</Text>
+						<Text textAlign="center" mb="4" variant="sub-heading">
+							These are our focus areas
+						</Text>
+					</div>
 				</Header>
 				<SkillsBoxes>
 					<SkillsBox>
