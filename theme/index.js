@@ -18,18 +18,19 @@ const shadows = {
 	lg: '0px 8px 30px rgba(0,0,0,0.12)',
 };
 
-const breakpoints = ['640px', '768px', '992px', '1200px'];
+const breakpoints = ['640px', '768px', '992px', '1200px', '1440px'];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
+breakpoints.xxl = breakpoints[4];
 
 const spacing = ['0.25rem', '0.5rem', '1rem', '1.5rem', '3rem', '5rem'];
 
 spacing.sm = spacing[0];
 spacing.md = spacing[2];
-spacing.lg = spacing[3];
-spacing.xl = spacing[4];
+spacing.lg = spacing[4];
+spacing.xl = spacing[5];
 
 export default {
 	palette,

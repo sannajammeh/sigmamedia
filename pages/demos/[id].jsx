@@ -66,7 +66,7 @@ const LoadingDemo = () => {
 	return (
 		<LoadingDemoContainer>
 			<SwappingSquares />
-			<Text variant="subtitle">
+			<Text variant="subtitle" textAlign="center">
 				Just a second, we're loading your demo.
 			</Text>
 		</LoadingDemoContainer>

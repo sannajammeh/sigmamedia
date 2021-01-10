@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import FeatureWalkthrough from '../components/templates/FeatureWalkthrough';
 import Hero from '../components/templates/Hero';
 export default function Home() {
 	return (
@@ -10,6 +11,7 @@ export default function Home() {
 
 			<main>
 				<Hero />
+				<FeatureWalkthrough />
 			</main>
 		</>
 	);
