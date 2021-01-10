@@ -3,8 +3,12 @@ import Section from '../components/atoms/Section';
 import styled from 'styled-components';
 import Text from '../components/atoms/Text';
 import Header from '../components/atoms/Header';
-import Row from '../components/atoms/Row';
+import RowBase from '../components/atoms/Row';
 import Button from '../components/atoms/Button';
+
+const Row = styled(RowBase)`
+	flex-wrap: nowrap;
+`;
 
 const Contact = () => {
 	return (
