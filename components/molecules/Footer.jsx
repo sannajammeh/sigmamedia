@@ -4,19 +4,11 @@ import Container from '../atoms/Container';
 import Head from 'next/head';
 import Text from '../atoms/Text';
 import Media from '../../utils/media';
+import Icon from '../atoms/Icon';
 
 const Footer = () => {
 	return (
 		<FooterSection>
-			<Head>
-				<link href="https://css.gg/pin.css" rel="stylesheet"></link>
-				<link href="https://css.gg/phone.css" rel="stylesheet"></link>
-				<link href="https://css.gg/mail.css" rel="stylesheet"></link>
-				<link
-					href="https://css.gg/instagram.css"
-					rel="stylesheet"
-				></link>
-			</Head>
 			<Container>
 				<Row>
 					<FooterColumn className="mobile">
@@ -25,15 +17,15 @@ const Footer = () => {
 								<Text variant="sub-heading">Social media</Text>
 							</center>
 							<FooterRow className="mobile">
-								<Icon>
-									<i class="gg-instagram"></i>
-								</Icon>
-								<Icon>
-									<i class="gg-instagram"></i>
-								</Icon>
-								<Icon>
-									<i class="gg-instagram"></i>
-								</Icon>
+								<IconStyle>
+									<Icon name="instagram"></Icon>
+								</IconStyle>
+								<IconStyle>
+									<Icon name="facebook"></Icon>
+								</IconStyle>
+								<IconStyle>
+									<Icon name="youtube"></Icon>
+								</IconStyle>
 							</FooterRow>
 						</MobileRow>
 					</FooterColumn>
@@ -45,9 +37,9 @@ const Footer = () => {
 					</FooterColumn>
 					<FooterColumn>
 						<FooterRow className="mobile">
-							<Icon>
-								<i className="gg-pin"></i>
-							</Icon>
+							<IconStyle>
+								<Icon name="pin"></Icon>
+							</IconStyle>
 							<Text variant="paragraph">
 								<a
 									href="https://www.google.com/maps/place/Holmestrandgata+4,+0468+Oslo/data=!4m2!3m1!1s0x46416e11bfd564f5:0x62dbd3befcdb0090?sa=X&ved=2ahUKEwiJy5f97ozuAhXklosKHaPkARIQ8gEwAHoECAQQAQ"
@@ -58,15 +50,15 @@ const Footer = () => {
 							</Text>
 						</FooterRow>
 						<FooterRow className="mobile">
-							<Icon>
-								<i className="gg-phone"></i>
-							</Icon>
+							<IconStyle>
+								<Icon name="phone"></Icon>
+							</IconStyle>
 							<Text variant="paragraph">Lorem ipsum dolor</Text>
 						</FooterRow>
 						<FooterRow className="mobile">
-							<Icon>
-								<i className="gg-mail"></i>
-							</Icon>
+							<IconStyle>
+								<Icon name="mail"></Icon>
+							</IconStyle>
 							<Text variant="paragraph">
 								<a href="mailto:Sigmamedialtd@gmail.com?subject=New Website">
 									Sigmamedialtd@gmail.com
@@ -97,7 +89,7 @@ const FooterColumn = styled.div`
 	}
 `;
 
-const Icon = styled.div`
+const IconStyle = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;

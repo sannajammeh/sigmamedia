@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Section from '../components/atoms/Section';
 import Header from '../components/atoms/Header';
 import Footer from '../components/molecules/Footer';
+import Icon from '../components/atoms/Icon';
 
 //Framer Motion
 import { motion } from 'framer-motion';
@@ -15,46 +16,32 @@ const Skills = () => {
 	return (
 		<div>
 			<SkillsSection>
-				<Head>
-					<link
-						href="https://css.gg/arrange-front.css"
-						rel="stylesheet"
-					></link>
-					<link
-						href="https://css.gg/smartphone.css"
-						rel="stylesheet"
-					></link>
-					<link
-						href="https://css.gg/album.css"
-						rel="stylesheet"
-					></link>
-				</Head>
 				<Header>
 					<Text variant="headline">Skillsets</Text>
 				</Header>
 				<SkillsBoxes>
 					<SkillsBox>
-						<Icon>
-							<i class="gg-arrange-front"></i>
-						</Icon>
+						<IconStyle>
+							<Icon name="arrange-front"></Icon>
+						</IconStyle>
 						<Text variant="paragraph">
 							Developing blazing fast web applications for
 							seamless user interaction.
 						</Text>
 					</SkillsBox>
 					<SkillsBox>
-						<Icon>
-							<i class="gg-smartphone"></i>
-						</Icon>
+						<IconStyle>
+							<Icon name="smartphone"></Icon>
+						</IconStyle>
 						<Text variant="paragraph">
 							Mobile-first, responsive design layout for all
 							devices is a top priority.
 						</Text>
 					</SkillsBox>
 					<SkillsBox>
-						<Icon>
-							<i class="gg-album"></i>
-						</Icon>
+						<IconStyle>
+							<Icon name="album"></Icon>
+						</IconStyle>
 						<Text variant="paragraph">
 							Constantly continues to learn new technologies and
 							keeping up-to-date with the freshest trends.
@@ -102,7 +89,7 @@ const SkillsBox = styled.div`
 	}
 `;
 
-const Icon = styled.div`
+const IconStyle = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
