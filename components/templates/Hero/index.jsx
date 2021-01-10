@@ -13,10 +13,10 @@ const previewWebsites = [
 		photoURL: '/images/privatek.png',
 		path: '/demos/privatek?demo=https://privatek.no',
 	},
-	// {
-	// 	photoURL: '/images/freaky.png',
-	// 	path: '/demos/freaky-friday?demo=https://freaky-friday.vercel.app',
-	// },
+	{
+		photoURL: '/images/freaky.png',
+		path: '/demos/freaky-friday?demo=https://freaky-friday.vercel.app',
+	},
 	{
 		photoURL: '/images/inova.png',
 		path: '/demos/inova?demo=https://inova-green.vercel.app',

@@ -1,10 +1,8 @@
-import next from 'next';
 import styled from 'styled-components';
 import Text from '../components/atoms/Text';
 import Head from 'next/head';
 import Section from '../components/atoms/Section';
 import Header from '../components/atoms/Header';
-import Footer from '../components/molecules/Footer';
 
 //Framer Motion
 import { motion } from 'framer-motion';
