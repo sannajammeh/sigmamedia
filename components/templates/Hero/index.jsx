@@ -19,7 +19,7 @@ const previewWebsites = [
 	},
 	{
 		photoURL: '/images/inova.png',
-		path: '/demos/inova?demo=https://inova-green.vercel.app',
+		path: '/demos/inova?demo=https://inova-gresen.vercel.app',
 	},
 	{
 		photoURL: '/images/biobalance.png',

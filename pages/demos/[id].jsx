@@ -29,7 +29,10 @@ const Demo = ({ navbarRef }) => {
 			{loading && <LoadingDemo />}
 			<StyledIframe
 				url={demoURL}
-				onLoad={() => setLoading(false)}
+				onLoad={e => {
+					console.log(e);
+					setLoading(false);
+				}}
 				frameBorder="0"
 				width="100%"
 				height={ViewPort.innerHeight - navbarHeight + 'px'}
