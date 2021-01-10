@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Section from '../components/atoms/Section';
 import Text from '../components/atoms/Text';
-import Row from '../components/atoms/Row';
+import RowBase from '../components/atoms/Row';
 import Media from '../utils/media';
 import Head from 'next/head';
-
+import Container from '../components/atoms/Container';
 // Animations
 import { scrollReveal, titleAnim } from '../utils/animation';
 import { useScroll } from '../hooks/useScroll';
@@ -30,18 +30,27 @@ const About = () => {
 				quaerat omnis autem quibusdam. Ullam corporis quibusdam vitae!
 			</Section>
 			<AboutSection>
+				<AboutUsText variant="title">Our Team</AboutUsText>
 				<MemberSection>
 					<ReverseRow>
 						<MemberImg>
-							<img
-								src="https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-								alt=""
-							/>
+							<MemberImgDisplay
+								src="https://images.unsplash.com/photo-1515161079661-197513d8b51e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+								src1="https://images.unsplash.com/photo-1515161002491-fa402e64cdb2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+							></MemberImgDisplay>
 						</MemberImg>
 						<MemberText>
 							<div>
-								<Text variant="subtitle">CEO</Text>
-								<Text variant="paragraph">
+								<Text
+									variant="subtitle"
+									className="memberTitle"
+								>
+									CEO
+								</Text>
+								<Text
+									variant="paragraph"
+									className="memberDescription"
+								>
 									Lorem, ipsum dolor sit amet consectetur
 									adipisicing elit. Perferendis repellendus
 									quisquam eaque reiciendis. Cupiditate odit
@@ -55,10 +64,24 @@ const About = () => {
 				</MemberSection>
 				<MemberSection>
 					<Row>
+						<MemberImg>
+							<MemberImgDisplay
+								src="https://images.unsplash.com/photo-1567804619027-90a6a07063dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80"
+								src1="https://images.unsplash.com/photo-1567804623185-29d6abca9def?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80"
+							></MemberImgDisplay>
+						</MemberImg>
 						<MemberText>
 							<div>
-								<Text variant="subtitle">CEO</Text>
-								<Text variant="paragraph">
+								<Text
+									variant="subtitle"
+									className="memberTitle"
+								>
+									CEO
+								</Text>
+								<Text
+									variant="paragraph"
+									className="memberDescription"
+								>
 									Lorem, ipsum dolor sit amet consectetur
 									adipisicing elit. Perferendis repellendus
 									quisquam eaque reiciendis. Cupiditate odit
@@ -68,26 +91,28 @@ const About = () => {
 								</Text>
 							</div>
 						</MemberText>
-						<MemberImg>
-							<img
-								src="https://images.unsplash.com/photo-1519713958759-6254243c4a53?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-								alt=""
-							/>
-						</MemberImg>
 					</Row>
 				</MemberSection>
 				<MemberSection>
 					<ReverseRow>
 						<MemberImg>
-							<img
-								src="https://images.unsplash.com/photo-1533088468076-d1f6bdf16f62?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-								alt=""
-							/>
+							<MemberImgDisplay
+								src="https://images.unsplash.com/photo-1598976422096-120ebfd5a022?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+								src1="https://images.unsplash.com/photo-1595052233800-797ff8ffe1cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+							></MemberImgDisplay>
 						</MemberImg>
 						<MemberText>
 							<div>
-								<Text variant="subtitle">CEO</Text>
-								<Text variant="paragraph">
+								<Text
+									variant="subtitle"
+									className="memberTitle"
+								>
+									CEO
+								</Text>
+								<Text
+									variant="paragraph"
+									className="memberDescription"
+								>
 									Lorem, ipsum dolor sit amet consectetur
 									adipisicing elit. Perferendis repellendus
 									quisquam eaque reiciendis. Cupiditate odit
@@ -112,23 +137,42 @@ const AboutSection = styled(Section)`
 `;
 
 const MemberImgStyle = styled(motion.div)`
-	height: 80vh;
+	height: 70vh;
 	padding: 0 5rem;
-
 	${Media.md} {
 		flex: 50%;
+
 		padding: 0 10rem;
 	}
+`;
 
-	img {
-		object-fit: cover;
-		width: 100%;
-		height: 70vh;
-		border-radius: 4px;
+const AboutUsText = styled(Text)`
+	padding: 0rem 5rem;
+	margin: 2rem 0;
+	${Media.md} {
+		padding: 0 10rem;
 	}
 `;
+
+const MemberImgDisplay = styled.div`
+	width: 100%;
+	height: 100%;
+	background-image: url('${({ src }) => src}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 4px;
+	transition: all 0.3s ease-in-out;
+	margin: 0 auto;
+	${({ src1 }) =>
+		src1
+			? `&:hover {
+		background-image: url('${src1}');
+	}`
+			: ''};
+`;
+
 const MemberTextStyle = styled(motion.div)`
-	padding: 5rem;
+	padding: 3rem 5rem;
 	${Media.md} {
 		flex: 50%;
 		padding: 10rem;
@@ -137,6 +181,14 @@ const MemberTextStyle = styled(motion.div)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	.memberTitle {
+		font-weight: 500;
+		padding: 1rem 0;
+	}
+	.memberDescription {
+		font-weight: 100;
+		padding: 0.2rem;
+	}
 `;
 
 const MemberSection = styled(motion.div)`
@@ -146,17 +198,35 @@ const MemberSection = styled(motion.div)`
 	}
 `;
 
-const ReverseRow = styled(Row)`
+const ReverseRow = styled(RowBase)`
 	display: flex !important;
+	flex-direction: column;
 	div:first-child {
-		order: 2;
+		order: 1;
 	}
 	${Media.md} {
 		flex-direction: row;
+		div:first-child {
+			order: 2;
+		}
 	}
 `;
 
-const MemberImg = ({ children }) => {
+const Row = styled(RowBase)`
+	display: flex !important;
+	flex-direction: column;
+	div:first-child {
+		order: 1;
+	}
+	${Media.md} {
+		flex-direction: row;
+		div:first-child {
+			order: unset;
+		}
+	}
+`;
+
+const MemberImg = ({ children, ...rest }) => {
 	const [element, controls] = useScroll();
 
 	return (
@@ -165,6 +235,7 @@ const MemberImg = ({ children }) => {
 			animate={controls}
 			initial="hidden"
 			ref={element}
+			{...rest}
 		>
 			{children}
 		</MemberImgStyle>
