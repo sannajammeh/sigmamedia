@@ -8,8 +8,8 @@ import Footer from '../components/molecules/Footer';
 
 //Framer Motion
 import { motion } from 'framer-motion';
-import { titleAnim } from '../animation';
 import Media from '../utils/media';
+import { titleAnim } from '../utils/animation';
 
 const Skills = () => {
 	return (
