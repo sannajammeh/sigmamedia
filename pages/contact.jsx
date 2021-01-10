@@ -52,7 +52,9 @@ const Contact = () => {
 						></Input>
 					</Row>
 					<Row>
-						<Button type="submit">Send</Button>
+						<center>
+							<Button type="submit">Send</Button>
+						</center>
 					</Row>
 				</Form>
 			</ContactSection>

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import Media from '../../utils/media';
 
 const Row = styled.div`
 	display: block;
 	margin: 0 auto;
-	flex-wrap: wrap;
-	@media screen and (min-width: 768px) {
+	${Media.md} {
 		display: flex;
 		align-items: center;
 		justify-content: center;

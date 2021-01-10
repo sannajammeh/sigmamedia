@@ -149,6 +149,7 @@ const AboutSection = styled(Section)`
 const MemberImg = styled(motion.div)`
 	height: 80vh;
 	padding: 0 5rem;
+
 	${Media.md} {
 		flex: 50%;
 		padding: 0 10rem;
@@ -157,7 +158,8 @@ const MemberImg = styled(motion.div)`
 	img {
 		object-fit: cover;
 		width: 100%;
-		height: 80vh;
+		height: 70vh;
+		border-radius: 4px;
 	}
 `;
 const MemberText = styled(motion.div)`
