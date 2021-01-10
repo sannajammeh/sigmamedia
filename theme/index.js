@@ -13,9 +13,9 @@ const colors = {
 };
 const fontSizes = ['0.85', '1rem', '1.6rem', '2.66rem', '4rem'];
 const shadows = {
-	sm: '',
-	md: '',
-	lg: '',
+	sm: '0px 4px 8px rgba(0,0,0,0.12)',
+	md: '0px 6px 16px rgba(0,0,0,0.12)',
+	lg: '0px 8px 30px rgba(0,0,0,0.12)',
 };
 
 const breakpoints = ['640px', '768px', '992px', '1200px'];

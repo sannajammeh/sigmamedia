@@ -1,4 +1,3 @@
-import next from 'next';
 import styled from 'styled-components';
 import Text from '../components/atoms/Text';
 import Head from 'next/head';
@@ -6,6 +5,7 @@ import Section from '../components/atoms/Section';
 import Header from '../components/atoms/Header';
 import Footer from '../components/molecules/Footer';
 import Icon from '../components/atoms/Icon';
+
 
 //Framer Motion
 import { motion } from 'framer-motion';
@@ -17,7 +17,19 @@ const Skills = () => {
 		<div>
 			<SkillsSection>
 				<Header>
-					<Text variant="headline">Skillsets</Text>
+					<div>
+						<Text variant="headline">
+							<motion.h2
+								style={{ margin: 0, padding: 0 }}
+								variants={titleAnim}
+							>
+								Skillsets
+							</motion.h2>
+						</Text>
+						<Text textAlign="center" mb="4" variant="sub-heading">
+							These are our focus areas
+						</Text>
+					</div>
 				</Header>
 				<SkillsBoxes>
 					<SkillsBox>

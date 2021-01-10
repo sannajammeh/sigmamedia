@@ -3,34 +3,49 @@ import PropTypes from 'prop-types';
 import { routeArray } from '../../routes';
 import Button from '../atoms/Button';
 import Box from '../atoms/Box';
+import Text from '../atoms/Text';
 import Container from '../atoms/Container';
 import Media from '../../utils/media';
 import { forwardRef } from 'react';
 import Link from '../atoms/Link';
+import { useRouter } from 'next/router';
 
-const Navbar = forwardRef((_, ref) => {
+const Navbar = forwardRef(({ demoMode }, ref) => {
 	return (
-		<Header ref={ref}>
+		<Header ref={ref} demoMode={demoMode} as="header">
 			<Box width={1 / 6} display="flex" justifyContent="start">
 				<Link pointer href="/">
 					<img src="/figma.svg" height="30px" />
 				</Link>
 			</Box>
-			<DesktopBox width={4 / 6}>
-				<nav>
-					<NavList>
-						{routeArray.map(([name, path], key) => (
-							<NavItem key={key} href={path}>
-								{name}
-							</NavItem>
-						))}
-					</NavList>
-				</nav>
-			</DesktopBox>
-			<DesktopBox width={1 / 6} display="flex" justifyContent="flex-end">
-				<Button variant="outlined" py="2" px="4">
-					Inquire
-				</Button>
+			{!demoMode && (
+				<DesktopBox width={4 / 6}>
+					<nav>
+						<NavList>
+							{routeArray.map(([name, path], key) => (
+								<NavItem key={key} href={path}>
+									{name}
+								</NavItem>
+							))}
+						</NavList>
+					</nav>
+				</DesktopBox>
+			)}
+			{demoMode && (
+				<Box width={4 / 6}>
+					<Text textAlign="center" fontWeight="medium">
+						DEMO MODE
+					</Text>
+				</Box>
+			)}
+			<DesktopBox width={1 / 6} display="flex">
+				{demoMode ? (
+					<DemoButton />
+				) : (
+					<Button variant="outlined" py="2" px="4">
+						Inquire
+					</Button>
+				)}
 			</DesktopBox>
 			<MobileBox>
 				<i className="gg-menu-right-alt" />
@@ -46,8 +61,11 @@ const Header = styled(Container)`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: ${({ demoMode }) => (demoMode ? 0.5 : 1)}rem;
+	padding-bottom: ${({ demoMode }) => (demoMode ? 0.5 : 1)}rem;
+	transition: padding 0.2s ease;
+	${({ theme, demoMode }) =>
+		demoMode ? `box-shadow: ${theme.shadows.sm};` : ''}
 `;
 
 Header.defaultProps = {
@@ -66,10 +84,23 @@ const NavList = styled.ul`
 const NavItem = ({ href, children }) => {
 	return (
 		<NavItemStyle>
-			<Link href={href}>
-				<Anchor>{children}</Anchor>
-			</Link>
+			<Link href={href}>{children}</Link>
 		</NavItemStyle>
+	);
+};
+
+const DemoButton = () => {
+	const router = useRouter();
+	return (
+		<Button
+			variant="outlined"
+			py="2"
+			px="4"
+			style={{ whiteSpace: 'nowrap' }}
+			onClick={() => router.push('/')}
+		>
+			Back to home
+		</Button>
 	);
 };
 
@@ -77,13 +108,6 @@ NavItem.propTypes = {
 	href: PropTypes.string.isRequired,
 	children: PropTypes.node.isRequired,
 };
-
-const Anchor = styled.a`
-	text-decoration: inherit;
-	color: inherit;
-	margin: 0;
-	padding: 0;
-`;
 
 const NavItemStyle = styled.li`
 	margin: 0 1rem;
@@ -98,7 +122,9 @@ const NavItemStyle = styled.li`
 const DesktopBox = styled(Box)`
 	display: none;
 	${Media.sm} {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 `;
 

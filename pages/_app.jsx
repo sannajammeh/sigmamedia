@@ -12,7 +12,9 @@ import { useRef } from 'react';
 export default function App({ Component, pageProps }) {
 	const { pathname } = useRouter();
 	const navbarRef = useRef();
-	const showFooter = pathname !== '/elements' && !pathname.includes('/demos');
+
+	const demoMode = pathname.includes('/demos');
+	const showFooter = pathname !== '/elements' && !demoMode;
 	return (
 		<>
 			<Head>
@@ -28,7 +30,7 @@ export default function App({ Component, pageProps }) {
 			</Head>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
-				<Navbar ref={navbarRef} />
+				<Navbar ref={navbarRef} demoMode={demoMode} />
 				<Component {...pageProps} navbarRef={navbarRef} />
 				{showFooter && <Footer />}
 				<MobileMenuPortal />
