@@ -1,5 +1,8 @@
 export const getBreakpoint = key => ({ theme }) => theme.breakpoints[key];
-const makeQuery = width => `@media screen and (min-width: ${width})`;
+const makeQuery = width =>
+	`@media screen and (min-width: ${
+		typeof width === 'number' ? width + 'px' : width
+	})`;
 /**
  * @param {'sm' | 'md' | 'lg' | 'xl'} key
  */
@@ -10,6 +13,7 @@ const Media = {
 	md: getQuery('md'),
 	lg: getQuery('lg'),
 	xl: getQuery('xl'),
+	xxl: getQuery('xxl'),
 	w: makeQuery,
 };
 

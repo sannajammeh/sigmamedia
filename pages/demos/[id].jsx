@@ -29,7 +29,10 @@ const Demo = ({ navbarRef }) => {
 			{loading && <LoadingDemo />}
 			<StyledIframe
 				url={demoURL}
-				onLoad={() => setLoading(false)}
+				onLoad={e => {
+					console.log(e);
+					setLoading(false);
+				}}
 				frameBorder="0"
 				width="100%"
 				height={ViewPort.innerHeight - navbarHeight + 'px'}
@@ -63,7 +66,7 @@ const LoadingDemo = () => {
 	return (
 		<LoadingDemoContainer>
 			<SwappingSquares />
-			<Text variant="subtitle">
+			<Text variant="subtitle" textAlign="center">
 				Just a second, we're loading your demo.
 			</Text>
 		</LoadingDemoContainer>
