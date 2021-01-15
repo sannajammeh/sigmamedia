@@ -12,7 +12,15 @@ const Elements = () => {
 			<Text as="h1" mb="4">
 				Elements
 			</Text>
-			<Showcase n="Typography"></Showcase>
+			<Showcase n="Typography">
+				<Text variant="headline">Headline</Text>
+				<Text variant="second-headline">Second headline</Text>
+				<Text variant="sub-heading">Sub headline</Text>
+				<Text variant="title">Title</Text>
+				<Text variant="subtitle">Subtitle</Text>
+				<Text variant="paragraph">Lorem ipsum dolor sit amet.</Text>
+				<Text variant="light">Lorem ipsum dolor sit amet.</Text>
+			</Showcase>
 			<Showcase n="Buttons">
 				<ButtonGrid>
 					<div>

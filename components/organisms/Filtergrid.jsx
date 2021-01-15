@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
-
+import Shuffle from 'shufflejs';
 import { AnimatePresence, motion } from 'framer-motion';
 import Row from '../atoms/Row';
 import css from '@styled-system/css';
 import Media from '../../utils/media';
 
 const Filtergrid = () => {
+	const sizeRef = useRef(null);
+	const shuffleRef = useRef(null);
+	const gridContainer = useRef(null);
 	const [category, setCategory] = useState('');
 	const results = category
 		? images.filter(image => image.category === category)
@@ -19,6 +22,28 @@ const Filtergrid = () => {
 		}
 		setCategory(c);
 	};
+
+	useEffect(() => {
+		const { current: shuffle } = shuffleRef;
+		if (!shuffle) return;
+		shuffle.filter(category);
+	}, [category, shuffleRef]);
+
+	useEffect(() => {
+		if (!gridContainer.current) return;
+		if (!sizeRef.current) return;
+
+		const shuffleInstance = new Shuffle(gridContainer.current, {
+			itemSelector: '.grid-item',
+			sizer: sizeRef.current,
+		});
+
+		shuffleRef.current = shuffleInstance;
+
+		return () => {
+			shuffleInstance.destroy();
+		};
+	}, [gridContainer, sizeRef]);
 
 	return (
 		<div>
@@ -48,20 +73,16 @@ const Filtergrid = () => {
 					Applications
 				</GridButton>
 			</ButtonRow>
-			<ImgGrid>
-				<AnimatePresence exitBeforeEnter>
-					{results.map((image, key) => (
-						<Image
-							//onclick={}
-							transition={{ duration: 0.2 }}
-							initial={{ scale: 0, opacity: 0 }}
-							key={image.photoUrl}
-							exit={{ scale: 0, opacity: 0 }}
-							animate={{ scale: 1, opacity: 1 }}
-							src={image.photoUrl}
-						></Image>
-					))}
-				</AnimatePresence>
+			<ImgGrid ref={gridContainer} className="grid-container">
+				{images.map((image, key) => (
+					<Image
+						ref={key === 0 ? sizeRef : undefined}
+						className="grid-item"
+						key={key}
+						src={image.photoUrl}
+						data-groups={`["${image.category}"]`}
+					/>
+				))}
 			</ImgGrid>
 		</div>
 	);
@@ -109,7 +130,7 @@ const images = [
 	},
 ];
 
-const Image = styled(motion.img)`
+const Image = styled.img`
 	${Media.md} {
 		height: 250px;
 		width: 33%;
@@ -120,7 +141,7 @@ const Image = styled(motion.img)`
 	padding: 1rem;
 	transition: all 0.2s ease;
 	&:hover {
-		transform: scale(1.1) !important;
+		/* transform: scale(1.1) !important; */
 		cursor: pointer;
 	}
 `;

@@ -17,6 +17,9 @@ const ContainerBase = styled.div`
 	${Media.xl} {
 		width: 75%;
 	}
+	${Media.w(2000)} {
+		width: 65%;
+	}
 `;
 
 const Container = ContainerBase;

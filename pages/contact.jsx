@@ -5,6 +5,7 @@ import Text from '../components/atoms/Text';
 import Header from '../components/atoms/Header';
 import RowBase from '../components/atoms/Row';
 import Button from '../components/atoms/Button';
+import Container from '../components/atoms/Container';
 
 const Row = styled(RowBase)`
 	flex-wrap: nowrap;
@@ -68,8 +69,6 @@ const Contact = () => {
 
 export default Contact;
 
-const ContactSection = styled(Section)`
-	width: 80%;
-`;
+const ContactSection = styled(Container)``;
 
 const Form = styled.form``;
