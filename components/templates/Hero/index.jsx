@@ -49,7 +49,7 @@ const Hero = () => {
 			<HeroContainer
 				display="flex"
 				justifyContent="space-between"
-				minHeight="500px"
+				minHeight="90vh"
 			>
 				<div>
 					<FloatingBoxes sizes={[viewport.width, 450, 450, 600]}>

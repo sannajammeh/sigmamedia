@@ -1,4 +1,6 @@
-import LandingSection from '../../atoms/LandingSection';
+import LandingSection, {
+	LandingSectionHeader,
+} from '../../atoms/LandingSection';
 import Text from '../../atoms/Text';
 import Box from '../../atoms/Box';
 import styled from 'styled-components';
@@ -7,15 +9,17 @@ import Icon from '../../atoms/Icon';
 const FeatureWalkthrough = () => {
 	return (
 		<LandingSection>
-			<Text variant="second-headline" textAlign="center" mb="2">
-				YOUR BUSINESS, COMPLETELY ONLINE
-			</Text>
-			<Text variant="subtitle" textAlign="center" mb="5">
-				Need a website, design or ecommerce platform? See what
-				{' <Sigma />'} provides.
-			</Text>
+			<LandingSectionHeader>
+				<Text variant="second-headline" textAlign="center" mb="2">
+					YOUR BUSINESS, COMPLETELY ONLINE
+				</Text>
+				<Text variant="subtitle" textAlign="center">
+					Need a website, design or ecommerce platform? See what
+					{' <Sigma />'} provides.
+				</Text>
+			</LandingSectionHeader>
 			<Box display="flex" justifyContent="space-between">
-				<FeatureImage src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" />
+				<FeatureImage src="/images/building-website.svg" />
 				<div>
 					<Feature mb="5">
 						<FeatureTitle center>
@@ -86,7 +90,7 @@ const FeatureImage = styled.img`
 	border-radius: 4px;
 	height: 600px;
 	width: 50%;
-	object-fit: cover;
+	object-fit: contain;
 `;
 
 const Feature = styled(Box)`

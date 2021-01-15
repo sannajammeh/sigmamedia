@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import FeatureWalkthrough from '../components/templates/FeatureWalkthrough';
 import Hero from '../components/templates/Hero';
+import Solution from '../components/templates/Solution';
 export default function Home() {
 	return (
 		<>
@@ -12,6 +13,7 @@ export default function Home() {
 			<main>
 				<Hero />
 				<FeatureWalkthrough />
+				<Solution />
 			</main>
 		</>
 	);

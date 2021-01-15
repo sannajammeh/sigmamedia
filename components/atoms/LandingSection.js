@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Box from './Box';
 import Container from './Container';
 
 const LandingSection = styled(Container)`
@@ -11,3 +12,7 @@ export default LandingSection;
 LandingSection.defaultProps = {
 	as: 'section',
 };
+
+export const LandingSectionHeader = styled(Box)`
+	${({ theme }) => `margin-bottom: ${theme.spacing.lg}`}
+`;
