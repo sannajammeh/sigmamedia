@@ -9,11 +9,11 @@ const Text = styled.p`
 		variants: {
 			headline: {
 				fontSize: 4,
-				fontWeight: 'medium',
+				fontWeight: 'bold',
 			},
 			'second-headline': {
 				fontSize: 3,
-				fontWeight: 'regular',
+				fontWeight: 'medium',
 			},
 			'sub-heading': {
 				fontSize: 2,
@@ -48,8 +48,6 @@ const Text = styled.p`
 	${color};
 	${layout};
 	${({ variant }) => {
-		console.log('🚀 ~ file: Text.js ~ line 64 ~ variant', variant);
-
 		switch (variant) {
 			case 'headline':
 				return headline;
@@ -57,6 +55,8 @@ const Text = styled.p`
 				return subHeading;
 			case 'second-headline':
 				return secondHeadline;
+			case 'subtitle':
+				return subTitle;
 			default:
 				return '';
 		}
@@ -76,6 +76,13 @@ const headline = css`
 	}
 `;
 const subHeading = css`
+	font-size: ${({ theme }) => theme.fontSizes[1]};
+	${Media.md} {
+		font-size: ${({ theme }) => theme.fontSizes[2]};
+	}
+`;
+
+const subTitle = css`
 	font-size: ${({ theme }) => theme.fontSizes[1]};
 	${Media.md} {
 		font-size: ${({ theme }) => theme.fontSizes[2]};

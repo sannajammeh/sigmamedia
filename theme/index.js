@@ -32,7 +32,7 @@ spacing.md = spacing[2];
 spacing.lg = spacing[4];
 spacing.xl = spacing[5];
 
-export default {
+const theme = {
 	palette,
 	colors,
 	fontSizes,
@@ -42,8 +42,10 @@ export default {
 		medium: 500,
 		'semi-bold': 600,
 		bold: 700,
+		'extra-bold': 800,
+		black: 900,
 	},
-	spacing,
+	space: spacing,
 	borders: {
 		normal: '2px solid #ffffff',
 		thick: '4px solid #ffffff',
@@ -52,4 +54,14 @@ export default {
 	shadows,
 	zIndices: [111, 333, 666, 888, 999],
 	breakpoints,
+};
+export default theme;
+
+export const lightTheme = {
+	...theme,
+	colors: {
+		...theme.colors,
+		bg: palette.white,
+		textOnBg: palette.dark[600],
+	},
 };

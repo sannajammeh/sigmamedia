@@ -17,8 +17,9 @@ const GlobalStyle = createGlobalStyle`
         background: ${({ theme }) => theme.colors.bg};
         color: ${({ theme }) => theme.colors.textOnBg};
         line-height: 1.4;
-        font-family: 'Montserrat', sans-serif;
-       
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 `;
 
