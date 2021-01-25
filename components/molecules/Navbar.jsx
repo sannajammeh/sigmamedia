@@ -42,8 +42,13 @@ const Navbar = forwardRef(({ demoMode }, ref) => {
 				{demoMode ? (
 					<DemoButton />
 				) : (
-					<Button variant="outlined" py="2" px="4">
-						Inquire
+					<Button
+						variant="outlined"
+						style={{ whiteSpace: 'nowrap' }}
+						py="2"
+						px="4"
+					>
+						Get Started
 					</Button>
 				)}
 			</DesktopBox>
@@ -63,6 +68,7 @@ const Header = styled(Container)`
 	align-items: center;
 	padding-top: ${({ demoMode }) => (demoMode ? 0.5 : 1)}rem;
 	padding-bottom: ${({ demoMode }) => (demoMode ? 0.5 : 1)}rem;
+	padding-left: ${({ theme }) => theme.space[1]};
 	transition: padding 0.2s ease;
 	${({ theme, demoMode }) =>
 		demoMode ? `box-shadow: ${theme.shadows.sm};` : ''}

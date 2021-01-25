@@ -4,7 +4,7 @@ import Media from '../../utils/media';
 const ContainerBase = styled.div`
 	margin: 0 auto;
 	width: 100%;
-	padding: 0 0.5rem;
+	padding: 0 1rem;
 	${Media.sm} {
 		width: 90%;
 	}

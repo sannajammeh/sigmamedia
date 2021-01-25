@@ -3,6 +3,7 @@ import Text from '../atoms/Text';
 import LandingSection, { LandingSectionHeader } from '../atoms/LandingSection';
 import styled from 'styled-components';
 import Box from '../atoms/Box';
+import Media from '../../utils/media';
 
 const Solution = () => {
 	return (
@@ -17,7 +18,9 @@ const Solution = () => {
 				justifyContent="space-around"
 			>
 				<SolutionImage src="/images/how-you-like.svg" />
-				<Box flexBasis={[null, null, '50%']}>sd</Box>
+				<Box flexBasis={[null, null, '50%']}>
+					Get your website custom taylored to your needs
+				</Box>
 			</Box>
 		</LandingSection>
 	);
@@ -26,5 +29,8 @@ const Solution = () => {
 export default Solution;
 
 const SolutionImage = styled.img`
-	width: 50%;
+	width: 100%;
+	${Media.md} {
+		width: 50%;
+	}
 `;

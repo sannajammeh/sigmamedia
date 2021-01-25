@@ -38,18 +38,18 @@ const Hero = () => {
 	);
 	const viewport = useViewport({ width: 360 });
 
-	useEffect(() => {
-		if (isLargeDevice) return setBoxes(previewWebsites);
-		const newArr = [...previewWebsites];
-		newArr.pop();
-		setBoxes(newArr);
-	}, [isLargeDevice]);
+	// useEffect(() => {
+	// 	if (isLargeDevice) return setBoxes(previewWebsites);
+	// 	const newArr = [...previewWebsites];
+	// 	newArr.pop();
+	// 	setBoxes(newArr);
+	// }, [isLargeDevice]);
 	return (
 		<Container as="section">
 			<HeroContainer
 				display="flex"
-				justifyContent="space-between"
-				minHeight="90vh"
+				justifyContent={['center', 'center', 'space-between']}
+				minHeight={['60vh', '60vh', '90vh']}
 			>
 				<div>
 					<FloatingBoxes sizes={[viewport.width, 450, 450, 600]}>
@@ -77,7 +77,7 @@ const Hero = () => {
 						mt="4"
 					>
 						<div>
-							<Button mx="1">Inquire</Button>
+							<Button mx="1">Get Started</Button>
 						</div>
 						<div>
 							<Button mx="1" variant="outlined">
@@ -97,7 +97,7 @@ const HeroContainer = styled(Box)`
 	flex-direction: column-reverse;
 	flex-wrap: nowrap;
 	align-items: center;
-	padding-top: ${({ theme }) => theme.spacing.md};
+	padding-top: ${({ theme }) => theme.space.md};
 	${Media.md} {
 		padding-top: 0;
 		flex-direction: row;
@@ -109,7 +109,7 @@ const HeroText = styled(Box)`
 	order: 1;
 	width: 100%;
 	text-align: center;
-	margin-bottom: ${({ theme }) => theme.spacing.md};
+	margin-bottom: ${({ theme }) => theme.space.md};
 	${Media.sm} {
 		order: 2;
 		margin-bottom: 0;
