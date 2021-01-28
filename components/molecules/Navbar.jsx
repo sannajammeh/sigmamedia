@@ -12,49 +12,51 @@ import { useRouter } from 'next/router';
 
 const Navbar = forwardRef(({ demoMode }, ref) => {
 	return (
-		<Header ref={ref} demoMode={demoMode} as="header">
-			<Box width={1 / 6} display="flex" justifyContent="start">
-				<Link pointer href="/">
-					<img src="/figma.svg" height="30px" />
-				</Link>
-			</Box>
-			{!demoMode && (
-				<DesktopBox width={4 / 6}>
-					<nav>
-						<NavList>
-							{routeArray.map(([name, path], key) => (
-								<NavItem key={key} href={path}>
-									{name}
-								</NavItem>
-							))}
-						</NavList>
-					</nav>
-				</DesktopBox>
-			)}
-			{demoMode && (
-				<Box width={4 / 6}>
-					<Text textAlign="center" fontWeight="medium">
-						DEMO MODE
-					</Text>
+		<Header ref={ref} demoMode={demoMode}>
+			<HeaderWrapper>
+				<Box width={1 / 6} display="flex" justifyContent="start">
+					<Link pointer href="/">
+						<img src="/figma.svg" height="30px" />
+					</Link>
 				</Box>
-			)}
-			<DesktopBox width={1 / 6} display="flex">
-				{demoMode ? (
-					<DemoButton />
-				) : (
-					<Button
-						variant="outlined"
-						style={{ whiteSpace: 'nowrap' }}
-						py="2"
-						px="4"
-					>
-						Get Started
-					</Button>
+				{!demoMode && (
+					<DesktopBox width={4 / 6}>
+						<nav>
+							<NavList>
+								{routeArray.map(([name, path], key) => (
+									<NavItem key={key} href={path}>
+										{name}
+									</NavItem>
+								))}
+							</NavList>
+						</nav>
+					</DesktopBox>
 				)}
-			</DesktopBox>
-			<MobileBox>
-				<i className="gg-menu-right-alt" />
-			</MobileBox>
+				{demoMode && (
+					<Box width={4 / 6}>
+						<Text textAlign="center" fontWeight="medium">
+							DEMO MODE
+						</Text>
+					</Box>
+				)}
+				<DesktopBox width={1 / 6} display="flex">
+					{demoMode ? (
+						<DemoButton />
+					) : (
+						<Button
+							variant="outlined"
+							style={{ whiteSpace: 'nowrap' }}
+							py="2"
+							px="4"
+						>
+							Get Started
+						</Button>
+					)}
+				</DesktopBox>
+				<MobileBox>
+					<i className="gg-menu-right-alt" />
+				</MobileBox>
+			</HeaderWrapper>
 		</Header>
 	);
 });
@@ -62,10 +64,7 @@ const Navbar = forwardRef(({ demoMode }, ref) => {
 export default Navbar;
 
 // Styles
-const Header = styled(Container)`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+const Header = styled.header`
 	padding-top: ${({ demoMode }) => (demoMode ? 0.5 : 1)}rem;
 	padding-bottom: ${({ demoMode }) => (demoMode ? 0.5 : 1)}rem;
 	padding-left: ${({ theme }) => theme.space[1]};
@@ -77,6 +76,12 @@ const Header = styled(Container)`
 Header.defaultProps = {
 	as: 'header',
 };
+
+const HeaderWrapper = styled(Container)`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
 
 const NavList = styled.ul`
 	display: flex;

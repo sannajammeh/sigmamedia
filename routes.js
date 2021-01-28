@@ -1,8 +1,6 @@
 const routes = {
 	home: '/',
-	services: '/services',
 	about: '/about',
-	contact: '/contact',
 	// elements: '/elements',
 	skills: '/skills',
 	work: '/our-work',

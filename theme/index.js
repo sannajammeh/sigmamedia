@@ -54,6 +54,7 @@ const theme = {
 	shadows,
 	zIndices: [111, 333, 666, 888, 999],
 	breakpoints,
+	mode: 'dark',
 };
 export default theme;
 
@@ -64,4 +65,5 @@ export const lightTheme = {
 		bg: palette.white,
 		textOnBg: palette.dark[600],
 	},
+	mode: 'light',
 };

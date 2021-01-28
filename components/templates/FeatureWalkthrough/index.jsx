@@ -12,7 +12,7 @@ import { FaRegEye, FaChartLine } from 'react-icons/fa';
 
 const FeatureWalkthrough = () => {
 	return (
-		<LandingSection>
+		<LandingSection style={{ paddingBottom: 200 }}>
 			<LandingSectionHeader>
 				<Text variant="second-headline" textAlign="center" mb="1">
 					YOUR BUSINESS, COMPLETELY ONLINE

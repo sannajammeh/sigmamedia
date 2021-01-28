@@ -28,39 +28,42 @@ const Button = styled('button', { shouldForwardProps })`
 			transform: 'scale(0.95)',
 		},
 	})};
-	${variant({
-		variants: {
-			primary: {
-				color: 'textOnPrimary',
-				bg: 'primary',
-				'&:hover': {
-					border: 'normal',
-					borderColor: 'primary',
-					backgroundColor: 'transparent',
-					color: ({ palette }) => palette.purple[100],
+	${({ theme }) =>
+		variant({
+			variants: {
+				primary: {
+					color: 'textOnPrimary',
+					bg: 'primary',
+					'&:hover': {
+						border: 'normal',
+						borderColor: 'primary',
+						backgroundColor: 'transparent',
+						color: ({ palette }) => palette.purple[300],
+					},
 				},
-			},
-			outlined: {
-				bg: 'transparent',
-				color: 'textOnBg',
-				border: 'normal',
-				'&:hover': {
-					backgroundColor: 'light',
-					color: 'textOnLight',
-				},
-			},
-			'outlined-dark': {
-				bg: 'transparent',
-				color: 'bg',
-				border: 'normal',
-				borderColor: 'bg',
-				'&:hover': {
-					backgroundColor: 'bg',
+				outlined: {
+					bg: 'transparent',
 					color: 'textOnBg',
+					border: 'normal',
+					'&:hover': {
+						backgroundColor:
+							theme.mode === 'dark' ? 'light' : 'textOnBg',
+						color: theme.mode === 'dark' ? 'textOnLight' : 'bg',
+					},
+					borderColor: theme.mode === 'dark' ? undefined : 'textOnBg',
+				},
+				'outlined-dark': {
+					bg: 'transparent',
+					color: 'bg',
+					border: 'normal',
+					borderColor: 'bg',
+					'&:hover': {
+						backgroundColor: 'bg',
+						color: 'textOnBg',
+					},
 				},
 			},
-		},
-	})};
+		})};
 `;
 
 Button.defaultProps = {

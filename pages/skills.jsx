@@ -10,10 +10,11 @@ import Icon from '../components/atoms/Icon';
 import { motion } from 'framer-motion';
 import Media from '../utils/media';
 import { titleAnim } from '../utils/animation';
+import Layout from '../components/atoms/Layout';
 
 const Skills = () => {
 	return (
-		<div>
+		<Layout title="Sigma Media | Skillsets">
 			<SkillsSection>
 				<Header>
 					<div>
@@ -103,7 +104,7 @@ const Skills = () => {
 					</center>
 				</SkillsImages>
 			</SkillsSection>
-		</div>
+		</Layout>
 	);
 };
 

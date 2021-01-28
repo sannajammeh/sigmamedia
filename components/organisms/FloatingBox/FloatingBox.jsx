@@ -1,14 +1,13 @@
 import { Children } from 'react';
-import styled from 'styled-components';
-import Media from '../../../utils/media';
+import styled, { keyframes } from 'styled-components';
 
 const FloatingBoxes = ({
 	images = [],
-	sizes = [150, 200, 300, 400],
 	boxProps = {},
 	css,
 	onBoxClick,
 	children,
+	size,
 	...rest
 }) => {
 	const { ...restBoxProps } = boxProps;
@@ -17,12 +16,11 @@ const FloatingBoxes = ({
 	};
 	const childs = Children.toArray(children);
 	return (
-		<FloatingContain sizes={sizes}>
+		<FloatingContain size={size}>
 			<FloatingBoxContainer
 				items={childs.length || images.length}
 				css={css}
 				{...rest}
-				sizes={sizes}
 			>
 				{images.length
 					? images.map((url, key) => (
@@ -41,27 +39,19 @@ const FloatingBoxes = ({
 
 export default FloatingBoxes;
 
-const getBoxSize = (d = 150, n = 0) => ({ boxSize = d }) =>
-	boxSize instanceof Array ? boxSize[n] : boxSize;
-
-const FloatingContain = styled.div`
+const FloatingContain = styled('div').attrs(props => ({
+	style: {
+		'--container-size': props.size + 'px',
+	},
+}))`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow: hidden;
-	--container-size: ${({ sizes }) => getBoxSize(sizes[0])}px;
-	${Media.sm} {
-		--container-size: ${({ sizes }) => getBoxSize(sizes[1])}px;
-	}
-	${Media.md} {
-		--container-size: ${({ sizes }) => getBoxSize(sizes[2])}px;
-	}
-	${Media.lg} {
-		--container-size: ${({ sizes }) => getBoxSize(sizes[3])}px;
-	}
+
 	width: var(--container-size);
 	height: calc(var(--container-size) / 1.5);
 `;
+
 const FloatingBoxContainer = styled.div`
 	--gutter: 5px;
 
@@ -126,14 +116,14 @@ export const FloatingBox = styled.div`
 	}
 	&:hover {
 		transform: translateY(-20px) translateX(-20px) translateZ(0)
-			${({ hoverScale }) => (hoverScale ? `scale(${hoverScale})` : '')};
+			${({ hoverScale }) => (hoverScale ? `scale(${hoverScale})` : '')} !important;
 		transition: z-index 0.3s step-start, all 0.3s ease;
 		z-index: 1;
 		&:nth-child(2) {
 			transform: translateY(-20px) translateX(-20px) translateZ(0)
 				rotate(-90deg)
 				${({ hoverScale }) =>
-					hoverScale ? `scale(${hoverScale})` : ''};
+					hoverScale ? `scale(${hoverScale})` : ''} !important;
 		}
 	}
 	${({ css }) => css}
